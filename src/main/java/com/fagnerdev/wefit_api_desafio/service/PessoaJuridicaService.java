@@ -28,6 +28,7 @@ public class PessoaJuridicaService {
                 .cidade(dto.cidade())
                 .bairro(dto.bairro())
                 .estado(dto.estado())
+                .termosAceitos(dto.termosAceitos())
                 .build();
         return repository.save(pj);
     }

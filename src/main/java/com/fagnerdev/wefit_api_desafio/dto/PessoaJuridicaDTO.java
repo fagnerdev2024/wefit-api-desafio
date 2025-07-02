@@ -1,5 +1,6 @@
 package com.fagnerdev.wefit_api_desafio.dto;
 
+import jakarta.validation.constraints.AssertTrue;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
@@ -17,5 +18,8 @@ public record PessoaJuridicaDTO(
         String complemento,
         @NotBlank String cidade,
         @NotBlank String bairro,
-        @NotBlank String estado
+        @NotBlank String estado,
+        @AssertTrue(message = "Você deve aceitar os termos de uso.")
+        boolean termosAceitos
+
 ) {}

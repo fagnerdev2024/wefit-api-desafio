@@ -24,6 +24,7 @@ public class PessoaJuridica {
     private String celular;
     private String telefone;
     private String email;
+    private boolean termosAceitos;
 
     // Endereço
     private String cep;
