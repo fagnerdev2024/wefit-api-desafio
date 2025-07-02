@@ -11,25 +11,26 @@ import org.springframework.stereotype.Service;
 public class PessoaJuridicaService {
 
     @Autowired
-    private PessoaJuridicaRepository repository;
+    private PessoaJuridicaRepository pessoaJuridicaRepository;
 
-    public PessoaJuridica salvar(PessoaJuridicaDTO dto) {
-        PessoaJuridica pj = PessoaJuridica.builder()
-                .cnpj(dto.cnpj())
-                .cpfResponsavel(dto.cpfResponsavel())
-                .nome(dto.nome())
-                .celular(dto.celular())
-                .telefone(dto.telefone())
-                .email(dto.email())
-                .cep(dto.cep())
-                .logradouro(dto.logradouro())
-                .numero(dto.numero())
-                .complemento(dto.complemento())
-                .cidade(dto.cidade())
-                .bairro(dto.bairro())
-                .estado(dto.estado())
-                .termosAceitos(dto.termosAceitos())
+
+    public PessoaJuridica salvar(PessoaJuridicaDTO pessoaJuridicaDTO) {
+        PessoaJuridica pessoaJuridica = PessoaJuridica.builder()
+                .cnpj(pessoaJuridicaDTO.cnpj())
+                .cpfResponsavel(pessoaJuridicaDTO.cpfResponsavel())
+                .nome(pessoaJuridicaDTO.nome())
+                .celular(pessoaJuridicaDTO.celular())
+                .telefone(pessoaJuridicaDTO.telefone())
+                .email(pessoaJuridicaDTO.email())
+                .cep(pessoaJuridicaDTO.cep())
+                .logradouro(pessoaJuridicaDTO.logradouro())
+                .numero(pessoaJuridicaDTO.numero())
+                .complemento(pessoaJuridicaDTO.complemento())
+                .cidade(pessoaJuridicaDTO.cidade())
+                .bairro(pessoaJuridicaDTO.bairro())
+                .estado(pessoaJuridicaDTO.estado())
+                .termosAceitos(pessoaJuridicaDTO.termosAceitos())
                 .build();
-        return repository.save(pj);
+        return pessoaJuridicaRepository.save(pessoaJuridica);
     }
 }

@@ -26,7 +26,6 @@ public class PessoaJuridica {
     private String email;
     private boolean termosAceitos;
 
-    // Endereço
     private String cep;
     private String logradouro;
     private String numero;

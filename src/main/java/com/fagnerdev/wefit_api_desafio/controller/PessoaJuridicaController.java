@@ -8,7 +8,6 @@ import com.fagnerdev.wefit_api_desafio.service.PessoaJuridicaService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -17,15 +16,15 @@ public class PessoaJuridicaController {
 
 
     @Autowired
-    private PessoaJuridicaService service;
+    private PessoaJuridicaService pessoaJuridicaService;
 
     @Autowired
-    private PessoaJuridicaMapper mapper;
+    private PessoaJuridicaMapper pessoaJuridicaMapper;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public PessoaJuridicaDTO cadastrar(@RequestBody @Valid PessoaJuridicaDTO dto) {
-        PessoaJuridica entity = service.salvar(dto);
-        return mapper.toDTO(entity);
+    public PessoaJuridicaDTO cadastrar(@RequestBody @Valid PessoaJuridicaDTO pessoaJuridicaDTO) {
+        PessoaJuridica pessoaJuridica = pessoaJuridicaService.salvar(pessoaJuridicaDTO);
+        return pessoaJuridicaMapper.toDTO(pessoaJuridica);
     }
 }

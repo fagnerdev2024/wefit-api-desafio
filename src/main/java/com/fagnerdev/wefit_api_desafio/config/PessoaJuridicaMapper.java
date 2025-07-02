@@ -7,42 +7,42 @@ import org.springframework.stereotype.Component;
 @Component
 public class PessoaJuridicaMapper {
 
-    public PessoaJuridica toEntity(PessoaJuridicaDTO dto) {
+    public PessoaJuridica toEntity(PessoaJuridicaDTO pessoaJuridicaDTO) {
         return PessoaJuridica.builder()
-                .cnpj(dto.cnpj())
-                .cpfResponsavel(dto.cpfResponsavel())
-                .nome(dto.nome())
-                .celular(dto.celular())
-                .telefone(dto.telefone())
-                .email(dto.email())
-                .cep(dto.cep())
-                .logradouro(dto.logradouro())
-                .numero(dto.numero())
-                .complemento(dto.complemento())
-                .cidade(dto.cidade())
-                .bairro(dto.bairro())
-                .estado(dto.estado())
-                .termosAceitos(dto.termosAceitos())
+                .cnpj(pessoaJuridicaDTO.cnpj())
+                .cpfResponsavel(pessoaJuridicaDTO.cpfResponsavel())
+                .nome(pessoaJuridicaDTO.nome())
+                .celular(pessoaJuridicaDTO.celular())
+                .telefone(pessoaJuridicaDTO.telefone())
+                .email(pessoaJuridicaDTO.email())
+                .cep(pessoaJuridicaDTO.cep())
+                .logradouro(pessoaJuridicaDTO.logradouro())
+                .numero(pessoaJuridicaDTO.numero())
+                .complemento(pessoaJuridicaDTO.complemento())
+                .cidade(pessoaJuridicaDTO.cidade())
+                .bairro(pessoaJuridicaDTO.bairro())
+                .estado(pessoaJuridicaDTO.estado())
+                .termosAceitos(pessoaJuridicaDTO.termosAceitos())
                 .build();
     }
 
-    public PessoaJuridicaDTO toDTO(PessoaJuridica entity) {
+    public PessoaJuridicaDTO toDTO(PessoaJuridica pessoaJuridica) {
         return new PessoaJuridicaDTO(
-                entity.getCnpj(),
-                entity.getCpfResponsavel(),
-                entity.getNome(),
-                entity.getCelular(),
-                entity.getTelefone(),
-                entity.getEmail(),
-                entity.getEmail(), // confirmarEmail
-                entity.getCep(),
-                entity.getLogradouro(),
-                entity.getNumero(),
-                entity.getComplemento(),
-                entity.getCidade(),
-                entity.getBairro(),
-                entity.getEstado(),
-                entity.isTermosAceitos()
+                pessoaJuridica.getCnpj(),
+                pessoaJuridica.getCpfResponsavel(),
+                pessoaJuridica.getNome(),
+                pessoaJuridica.getCelular(),
+                pessoaJuridica.getTelefone(),
+                pessoaJuridica.getEmail(),
+                pessoaJuridica.getEmail(), // confirmarEmail
+                pessoaJuridica.getCep(),
+                pessoaJuridica.getLogradouro(),
+                pessoaJuridica.getNumero(),
+                pessoaJuridica.getComplemento(),
+                pessoaJuridica.getCidade(),
+                pessoaJuridica.getBairro(),
+                pessoaJuridica.getEstado(),
+                pessoaJuridica.isTermosAceitos()
         );
     }
 }
