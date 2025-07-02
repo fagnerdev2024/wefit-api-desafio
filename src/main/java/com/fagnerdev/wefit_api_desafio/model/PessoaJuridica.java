@@ -7,13 +7,11 @@ import jakarta.persistence.Id;
 import lombok.*;
 
 
-@Getter
-@Setter
 @Entity
-@ToString
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
-@EqualsAndHashCode
+@AllArgsConstructor
+@Builder
 public class PessoaJuridica {
 
     @Id
@@ -26,8 +24,8 @@ public class PessoaJuridica {
     private String celular;
     private String telefone;
     private String email;
-    private String confirmarEmail;
 
+    // Endereço
     private String cep;
     private String logradouro;
     private String numero;
@@ -35,6 +33,5 @@ public class PessoaJuridica {
     private String cidade;
     private String bairro;
     private String estado;
-
-    private Boolean termos;
 }
+
