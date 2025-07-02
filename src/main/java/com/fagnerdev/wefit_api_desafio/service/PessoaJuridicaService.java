@@ -12,11 +12,14 @@ import java.util.List;
 public class PessoaJuridicaService {
 
 
+    private final PessoaJuridicaRepository repository;
+
     @Autowired
-    private PessoaJuridicaRepository repository;
+    public PessoaJuridicaService(PessoaJuridicaRepository repository) {
+        this.repository = repository;
+    }
 
     public PessoaJuridica salvar(PessoaJuridica pessoa) {
-        // Aqui você pode colocar regras de negócio, como validações adicionais
         return repository.save(pessoa);
     }
 
