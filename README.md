@@ -44,6 +44,7 @@ Este projeto é uma API REST desenvolvida com Java 17 e Spring Boot para realiza
    ```bash
    Base URL: http://localhost:8080
    Endpoint para cadastro: POST /api/pessoa-juridica
+   Endpoint para listar todos: GET /api/pessoa-juridica
    Utilizar o Postman ou qualquer outra ferramenta similar
 
 4. **Testando a API:**

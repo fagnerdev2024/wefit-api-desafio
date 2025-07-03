@@ -13,8 +13,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/api/pessoa-juridica")
 public class PessoaJuridicaController {
@@ -36,7 +34,7 @@ public class PessoaJuridicaController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<PessoaJuridicaDTO>> listarTodos(Pageable pageable) {
+    public ResponseEntity<Page<PessoaJuridicaDTO>> listar(Pageable pageable) {
         Page<PessoaJuridicaDTO> resultado = pessoaJuridicaService.listarTodos(pageable);
         return ResponseEntity.ok(resultado);
     }
