@@ -24,6 +24,8 @@ Este projeto é uma API REST desenvolvida com Java 17 e Spring Boot para realiza
 - Bean Validation (Jakarta)
 - Lombok
 
+## Como rodar o projeto
+
 1. **Clone o repositório:**
 
    ```bash
