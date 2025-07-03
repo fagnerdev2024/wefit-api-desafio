@@ -3,6 +3,7 @@ package com.fagnerdev.wefit_api_desafio.dto;
 import jakarta.validation.constraints.AssertTrue;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 
 public record PessoaJuridicaDTO(
 
@@ -28,7 +29,7 @@ public record PessoaJuridicaDTO(
         @Email
         String confirmarEmail,
 
-        @NotBlank
+        @Pattern(regexp = "^\\d{5}-\\d{3}$", message = "CEP deve estar no formato 00000-000")
         String cep,
 
         @NotBlank
