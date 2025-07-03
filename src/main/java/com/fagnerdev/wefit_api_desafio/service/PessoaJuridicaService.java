@@ -18,14 +18,18 @@ public class PessoaJuridicaService {
     }
 
     @Transactional
-    public PessoaJuridica salvar(PessoaJuridicaDTO pessoaJuridicaDTO) {
-        if (pessoaJuridicaRepository.existsByCnpj(pessoaJuridicaDTO.cnpj())) {
+    public PessoaJuridica salvar(PessoaJuridicaDTO dto) {
+        if (!dto.email().equalsIgnoreCase(dto.confirmarEmail())) {
+            throw new IllegalArgumentException("Os campos 'email' e 'confirmarEmail' devem ser iguais.");
+        }
+
+        if (pessoaJuridicaRepository.existsByCnpj(dto.cnpj())) {
             throw new IllegalArgumentException("CNPJ já cadastrado.");
         }
 
         try {
-            PessoaJuridica pessoaJuridica = toEntity(pessoaJuridicaDTO);
-            return pessoaJuridicaRepository.save(pessoaJuridica);
+            PessoaJuridica entity = toEntity(dto);
+            return pessoaJuridicaRepository.save(entity);
         } catch (DataIntegrityViolationException e) {
             throw new RuntimeException("Erro ao salvar pessoa jurídica. Verifique os dados.", e);
         }
