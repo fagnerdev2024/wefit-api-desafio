@@ -35,7 +35,8 @@ Este projeto é uma API REST desenvolvida com Java 17 e Spring Boot para realiza
 2. **Compile e rode a aplicação usando Maven:**
 
    ```bash
-   ./mvnw spring-boot:run
+   após clonar o repositório, abra o terminal, navegue até o repositorio execute o seguinte comando para compilar e iniciar a aplicação:
+   mvnw.cmd spring-boot:run
    Ou, se preferir, compile o JAR e execute:
 
 3. **Acesse a API:**
