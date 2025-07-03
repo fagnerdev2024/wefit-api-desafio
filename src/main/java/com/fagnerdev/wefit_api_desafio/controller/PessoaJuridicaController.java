@@ -26,11 +26,13 @@ public class PessoaJuridicaController {
     @Autowired
     private PessoaJuridicaMapper pessoaJuridicaMapper;
 
+
+
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public PessoaJuridicaDTO cadastrar(@RequestBody @Valid PessoaJuridicaDTO pessoaJuridicaDTO) {
+    public ResponseEntity<PessoaJuridicaDTO> cadastrar(@RequestBody @Valid PessoaJuridicaDTO pessoaJuridicaDTO) {
         PessoaJuridica pessoaJuridica = pessoaJuridicaService.salvar(pessoaJuridicaDTO);
-        return pessoaJuridicaMapper.toDTO(pessoaJuridica);
+        PessoaJuridicaDTO dto = pessoaJuridicaMapper.toDTO(pessoaJuridica);
+        return ResponseEntity.status(HttpStatus.CREATED).body(dto);
     }
 
     @GetMapping
