@@ -1,23 +1,30 @@
 package com.fagnerdev.wefit_api_desafio.service;
 
 
+import com.fagnerdev.wefit_api_desafio.config.PessoaJuridicaMapper;
 import com.fagnerdev.wefit_api_desafio.dto.PessoaJuridicaDTO;
 import com.fagnerdev.wefit_api_desafio.model.PessoaJuridica;
 import com.fagnerdev.wefit_api_desafio.repository.PessoaJuridicaRepository;
 import com.fagnerdev.wefit_api_desafio.validacoes.PessoaJuridicaValidator;
 import jakarta.transaction.Transactional;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class PessoaJuridicaService {
 
     private final PessoaJuridicaRepository pessoaJuridicaRepository;
     private final PessoaJuridicaValidator pessoaJuridicaValidator;
+    private final PessoaJuridicaMapper pessoaJuridicaMapper;
 
-    public PessoaJuridicaService(PessoaJuridicaRepository pessoaJuridicaRepository, PessoaJuridicaValidator pessoaJuridicaValidator) {
+    public PessoaJuridicaService(PessoaJuridicaRepository pessoaJuridicaRepository, PessoaJuridicaValidator pessoaJuridicaValidator, PessoaJuridicaMapper pessoaJuridicaMapper) {
         this.pessoaJuridicaRepository = pessoaJuridicaRepository;
         this.pessoaJuridicaValidator = pessoaJuridicaValidator;
+        this.pessoaJuridicaMapper = pessoaJuridicaMapper;
     }
 
     @Transactional
@@ -49,5 +56,9 @@ public class PessoaJuridicaService {
                 .estado(pessoaJuridicaDTO.estado())
                 .termosAceitos(pessoaJuridicaDTO.termosAceitos())
                 .build();
+    }
+
+    public Page<PessoaJuridicaDTO> listarTodos(Pageable pageable) {
+        return pessoaJuridicaRepository.findAll(pageable).map(pessoaJuridicaMapper::toDTO);
     }
 }
