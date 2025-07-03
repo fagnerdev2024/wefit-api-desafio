@@ -20,6 +20,7 @@ public class PessoaJuridicaValidator {
         validarDuplicidadeCnpj(pessoaJuridicaDTO.cnpj());
         validarCpf(pessoaJuridicaDTO.cpfResponsavel());
         validarCnpj(pessoaJuridicaDTO.cnpj());
+        validarAceiteTermos(pessoaJuridicaDTO.termosAceitos());
     }
 
     private void validarEmailConfirmado(String email, String confirmarEmail) {
@@ -47,6 +48,12 @@ public class PessoaJuridicaValidator {
         cpfValidator.initialize(null);
         if (!cpfValidator.isValid(cpf, null)) {
             throw new IllegalArgumentException("CPF inválido.");
+        }
+    }
+
+    private void validarAceiteTermos(Boolean aceite) {
+        if (aceite == null || !aceite) {
+            throw new IllegalArgumentException("É obrigatório aceitar os termos de uso.");
         }
     }
 }
